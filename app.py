@@ -12,7 +12,7 @@ import joblib
 
 def predicts(data):
     clf = joblib.load("model.pkl")
-    full_pipeline = fetch_pipieline()
+    full_pipeline = fetch_pipeline()
     data_prepared = full_pipeline.transform(data)
     return clf.predict(data_prepared)
 
