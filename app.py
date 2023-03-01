@@ -16,24 +16,23 @@ def predicts(data):
     data_prepared = full_pipeline.transform(data)
     return clf.predict(data_prepared)
 
-def num_pipeline():
-    return Pipeline([
+def fetch_pipeline():
+    num_pipeline = Pipeline([
         ('imputer', SimpleImputer(strategy="median")),
         ('attribs_adder', CombinedAttributesAdder()),
         ('std_scaler', StandardScaler())
     ])
 
-def get_pipieline():
     housing = pd.read_csv("datasets/housing/housing.csv")
     housing = housing.drop("median_house_value", axis=1)
+    
     housing_num = housing.drop("ocean_proximity", axis=1)
 
     num_attribs = list(housing_num)
     cat_attribs = ["ocean_proximity"]
 
-    num_transformer = num_pipeline()
     full_pipeline = ColumnTransformer([
-        ("num", num_transformer, num_attribs),
+        ("num", num_pipeline, num_attribs),
         ("cat", OneHotEncoder(), cat_attribs)
     ])
 
