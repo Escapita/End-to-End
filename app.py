@@ -61,7 +61,7 @@ class CombinedAttributesAdder(BaseEstimator, TransformerMixin):
 st.title("Prediction Model")
 
 longitude = st.number_input("Longitude", max_value = 0.0)
-latitude = st.number_input("Latitude")
+latitude = st.number_input("Latitude", min_value = 1.0)
 age = st.number_input("Housing Median Age")
 total_rooms = st.number_input("Total rooms")
 total_bedrooms = st.number_input("Total bedrooms")
