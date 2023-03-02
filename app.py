@@ -62,12 +62,12 @@ st.title("Prediction Model")
 
 longitude = st.number_input("Longitude", max_value = 0.0)
 latitude = st.number_input("Latitude", min_value = 1.0)
-age = st.number_input("Housing Median Age")
-total_rooms = st.number_input("Total rooms")
-total_bedrooms = st.number_input("Total bedrooms")
-population = st.number_input("Population")
-households = st.number_input("Households")
-income = st.number_input("Median income")
+age = st.number_input("Housing Median Age", min_value = 1.0)
+total_rooms = st.number_input("Total rooms", min_value = 1.0)
+total_bedrooms = st.number_input("Total bedrooms", min_value = 1.0)
+population = st.number_input("Population", min_value = 1.0)
+households = st.number_input("Households", min_value = 1.0)
+income = st.number_input("Median income", min_value = 1.0)
 
 ocean_proximity = st.selectbox("Ocean Proximity: ",['<1H OCEAN', 'INLAND', 'ISLAND', 'NEAR BAY', 'NEAR OCEAN'])
 
